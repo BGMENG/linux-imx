@@ -2368,29 +2368,29 @@
 	};
 };
 
-&gpio0{
+&lsio_gpio0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_gpio0>;
 	status = "okay";
 };
 
-&gpio1{
+&lsio_gpio1{
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_gpio1>;
 	status = "okay";
 };
 
-&gpio2{
+&lsio_gpio2{
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_gpio2>;
 	status = "okay";
 };
-&gpio3{
+&lsio_gpio3{
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_gpio3>;
 	status = "okay";
 };
-&gpio4{
+&lsio_gpio4{
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_gpio4>;
 	status = "okay";
