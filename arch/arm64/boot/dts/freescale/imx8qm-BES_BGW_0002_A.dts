@@ -10,8 +10,8 @@
 #include "imx8qm.dtsi"
 
 / {
-	model = "Freescale i.MX8QM Custom";
-	compatible = "fsl,imx8qm-custom", "fsl,imx8qm";
+	model = "Freescale i.MX8QM BES_BGW_0002_A";
+	compatible = "fsl,imx8qm-BES_BGW_0002_A", "fsl,imx8qm";
 
 	chosen {
 		stdout-path = &lpuart0;
@@ -66,7 +66,7 @@
 	//				100>;
 	//	default-brightness-level = <80>;
 	//};
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not Used.
 	
 	//modem_reset: modem-reset {
@@ -273,7 +273,7 @@
 	//};
 
 	//sound-cs42888 {
-	//	compatible = "fsl,imx8qm-custom-cs42888",
+	//	compatible = "fsl,imx8qm-BES_BGW_0002_A-cs42888",
 	//	 "fsl,imx-audio-cs42888";
 	//	model = "imx-cs42888";
 	//	audio-cpu = <&esai0>;
@@ -1458,7 +1458,7 @@
 	pinctrl-names = "default";
 	// imx8qm_mek
 	//pinctrl-0 = <&pinctrl_hog>;
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	pinctrl-0 = <&pinctrl_adc>;
 
 	// imx8qm_mek
@@ -1470,7 +1470,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used? What does hog mean?
 
 	pinctrl_cm41_i2c: cm41i2cgrp {
@@ -1487,7 +1487,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	pinctrl_adc: adcgrp {
 		fsl,pins = <
 			IMX8QM_ADC_IN0_DMA_ADC0_IN0                   0xc0000060
@@ -1501,7 +1501,7 @@
 		>;
 	};
 
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	pinctrl_gpio0: gpio0grp {
 		fsl,pins = <
 			IMX8QM_GPT0_CAPTURE_LSIO_GPIO0_IO15           0x00000060
@@ -1635,7 +1635,7 @@
 	//	>;
 	//};
 
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
         pinctrl_bt_uart: bt_uartgrp {
             fsl,pins = <
                 IMX8QM_ENET0_RGMII_RXC_DMA_UART3_CTS_B        0x00000040
@@ -1645,7 +1645,7 @@
             >;
         };
 
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	pinctrl_i2c4: i2c4grp {
 		fsl,pins = <
 			IMX8QM_ENET0_MDC_DMA_I2C4_SCL                 0x00000040
@@ -1657,11 +1657,11 @@
 	pinctrl_cm41_i2c: cm41i2cgrp {
 		fsl,pins = <
 		IMX8QM_M41_I2C0_SDA_M41_I2C0_SDA			0x0600004c
-			IMX8QM_M41_I2C0_SCL_M41_I2C0_SCL			0x0600004c
+		IMX8QM_M41_I2C0_SCL_M41_I2C0_SCL			0x0600004c
 		>;
 	};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 
 
 	// imx8qm_mek
@@ -1680,7 +1680,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not Used.
 
 	// imx8qm_mek
@@ -1704,7 +1704,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not Used.
 
 
@@ -1727,7 +1727,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not Used.
 
 	// imx8qm_mek
@@ -1752,7 +1752,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not Used.
 
 	// imx8qm_mek
@@ -1763,7 +1763,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	pinctrl_flexcan1: flexcan0grp {
 		fsl,pins = <
 			IMX8QM_FLEXCAN0_RX_DMA_FLEXCAN0_RX            0x00000021
@@ -1780,7 +1780,7 @@
 	//		>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	pinctrl_flexcan2: flexcan1grp {
 		fsl,pins = <
 			IMX8QM_FLEXCAN1_RX_DMA_FLEXCAN1_RX            0x00000021
@@ -1797,7 +1797,7 @@
 	//		>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not Used.
 
 	// imx8qm_mek
@@ -1807,7 +1807,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not Used.
 
 	// imx8qm_mek
@@ -1818,7 +1818,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BEW_BGW_0002_A
 	pinctrl_i2c0: i2c0grp {
 		fsl,pins = <
 			IMX8QM_HDMI_TX0_TS_SCL_DMA_I2C0_SCL           0x06000021
@@ -1834,7 +1834,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -1845,7 +1845,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -1857,7 +1857,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -1867,7 +1867,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -1881,7 +1881,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -1892,7 +1892,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	pinctrl_lpuart0: lpuart0grp {
 		fsl,pins = <
 			IMX8QM_UART0_RX_DMA_UART0_RX                  0x06000020
@@ -1910,7 +1910,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	pinctrl_lpuart1: lpuart1grp {
 		fsl,pins = <
 			IMX8QM_UART1_CTS_B_DMA_UART1_CTS_B            0x06000020
@@ -1928,7 +1928,7 @@
 		>;
 	};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -1939,7 +1939,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -1949,7 +1949,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -1959,7 +1959,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -1969,7 +1969,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -1979,7 +1979,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -1991,7 +1991,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2002,7 +2002,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2012,7 +2012,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2025,7 +2025,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2038,7 +2038,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2048,7 +2048,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2059,7 +2059,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2069,7 +2069,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2087,7 +2087,7 @@
 	//		IMX8QM_EMMC0_DATA7_CONN_EMMC0_DATA7			0x00000021
 	//		IMX8QM_EMMC0_STROBE_CONN_EMMC0_STROBE			0x00000041
 	//	>;
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	pinctrl_usdhc1: usdhc1grp {
 		fsl,pins = <
 			IMX8QM_EMMC0_CLK_CONN_EMMC0_CLK               0x06000041
@@ -2132,7 +2132,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2143,7 +2143,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2155,7 +2155,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2167,7 +2167,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2178,7 +2178,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2189,7 +2189,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2199,7 +2199,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2209,7 +2209,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2219,7 +2219,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2229,7 +2229,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2241,7 +2241,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 
 	// imx8qm_mek
@@ -2253,7 +2253,7 @@
 	//	>;
 	//};
 	//
-	// imx8qm_custom
+	// imx8qm_BES_BGW_0002_A
 	// Not used.
 };
 
@@ -2366,4 +2366,32 @@
 		rpc-buf-size = <0x80000>;
 		print-buf-size = <0x80000>;
 	};
+};
+
+&gpio0{
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_gpio0>;
+	status = "okay";
+};
+
+&gpio1{
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_gpio1>;
+	status = "okay";
+};
+
+&gpio2{
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_gpio2>;
+	status = "okay";
+};
+&gpio3{
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_gpio3>;
+	status = "okay";
+};
+&gpio4{
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_gpio4>;
+	status = "okay";
 };
