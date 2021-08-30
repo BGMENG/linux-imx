@@ -22,6 +22,16 @@
 		reg = <0x00000000 0x80000000 0 0x40000000>;
 	};
 
+	gpio2: gpio2 {
+		compatible = "fsl,imx8qm-gpio","fsl,imx35-gpio";
+		gpio-controller;
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_gpio2>;
+		led0-gpio = <&lsio_gpio2 14 GPIO_ACTIVE_HIGH>;
+		led1-gpio = <&lsio_gpio2 15 GPIO_ACTIVE_HIGH>;
+		v3_8_per = <&lsio_gpio2 25 GPIO_ACTIVE_HIGH>;
+	};
+
 	//brcmfmac: brcmfmac {
 	//	compatible = "cypress,brcmfmac";
 	//	pinctrl-names = "init", "idle", "default";
