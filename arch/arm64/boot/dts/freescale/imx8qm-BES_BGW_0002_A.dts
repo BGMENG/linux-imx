@@ -22,14 +22,69 @@
 		reg = <0x00000000 0x80000000 0 0x40000000>;
 	};
 
+        leds: leds {
+                compatible = "gpio-leds";
+                pinctrl-names = "default";
+                pinctrl-0 = <&pinctrl_gpio2>;
+                led0 {
+                        label = "heartbeat";
+                        gpios = <&lsio_gpio2 14 GPIO_ACTIVE_HIGH>;
+                        linux,default-trigger = "heartbeat";
+                        default-state = "off";
+                };
+                led1 {
+                        label = "led1";
+                        gpios = <&lsio_gpio2 15 GPIO_ACTIVE_HIGH>;
+                        default-state = "on";
+                };
+                cell_led {
+                        label = "cell_led";
+                        gpios = <&lsio_gpio2 17 GPIO_ACTIVE_HIGH>;
+                        default-state = "mmc0";
+                };
+                wifi_led {
+                        label = "wifi_led";
+                        gpios = <&lsio_gpio2 19 GPIO_ACTIVE_HIGH>;
+                        default-state = "mmc1";
+                };
+                ble_led {
+                        label = "ble_led";
+                        gpios = <&lsio_gpio2 20 GPIO_ACTIVE_HIGH>;
+                        default-state = "off";
+                };
+                gps_led {
+                        label = "gps_led";
+                        gpios = <&lsio_gpio2 18 GPIO_ACTIVE_HIGH>;
+                        default-state = "off";
+                };
+		v3_8_per{
+                        label = "v3_8_per";
+                        gpios = <&lsio_gpio2 25 GPIO_ACTIVE_HIGH>;
+                        default-state = "on";
+		};
+        };
+
 	gpio2: gpio2 {
-		compatible = "fsl,imx8qm-gpio","fsl,imx35-gpio";
+		compatible = "fsl,imx35-gpio";
 		gpio-controller;
+		#gpio-cells = <2>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_gpio2>;
-		led0-gpio = <&lsio_gpio2 14 GPIO_ACTIVE_HIGH>;
-		led1-gpio = <&lsio_gpio2 15 GPIO_ACTIVE_HIGH>;
-		v3_8_per = <&lsio_gpio2 25 GPIO_ACTIVE_HIGH>;
+		v5_0_per{
+			label = "V5_0_per";
+			enable-gpios = <&lsio_gpio2 24 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
+//		v3_8_per{
+//			label = "V3_8_per";
+//			enable-gpios = <&lsio_gpio2 25 GPIO_ACTIVE_HIGH>;
+//			default-state = "on";
+//		};
+		v3_3_per{
+			label = "V3_3_per";
+			enable-gpios = <&lsio_gpio2 26 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
 	};
 
 	//brcmfmac: brcmfmac {
