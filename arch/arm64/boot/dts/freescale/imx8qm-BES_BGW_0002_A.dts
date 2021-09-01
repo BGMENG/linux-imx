@@ -91,6 +91,7 @@
 		};
 	};
 
+
 	//brcmfmac: brcmfmac {
 	//	compatible = "cypress,brcmfmac";
 	//	pinctrl-names = "init", "idle", "default";
@@ -1219,6 +1220,9 @@
 	status = "disabled";
 };
 
+&sata {
+	status = "disabled";
+};
 //&sata {
 //	pinctrl-names = "default";
 //	pinctrl-0 = <&pinctrl_sata>;
@@ -1226,16 +1230,17 @@
 //	ext_osc = <1>;
 //	status = "okay";
 //};
-&sata {
+
+&usbphy1{
 	status = "disabled";
 };
 //&usbphy1 {
 //	status = "okay";
 //};
-&usbphy1{
+
+&usbotg1 {
 	status = "disabled";
 };
-
 //&usbotg1 {
 //	vbus-supply = <&reg_usb_otg1_vbus>;
 //	pinctrl-names = "default";
@@ -1246,24 +1251,24 @@
 //	disable-over-current;
 //	status = "okay";
 //};
-&usbotg1 {
-	status = "disabled";
-};
 
-//&usb3_phy {
-//	status = "okay";
-//};
 &usb3_phy {
 	status = "disabled";
 };
-
-//&usbotg3 {
+//&usb3_phy {
 //	status = "okay";
 //};
+
 &usbotg3 {
 	status = "disabled";
 };
+//&usbotg3 {
+//	status = "okay";
+//};
 
+&usbotg3_cdns3 {
+	status = "disabled";
+};
 //&usbotg3_cdns3 {
 //	dr_mode = "otg";
 //	usb-role-switch;
@@ -1274,10 +1279,6 @@
 //		};
 //	};
 //};
-&usbotg3_cdns3 {
-	status = "disabled";
-};
-
 
 &usdhc1 {
 	assigned-clocks = <&clk IMX_SC_R_SDHC_0 IMX_SC_PM_CLK_PER>;
@@ -1308,11 +1309,24 @@
 &i2c0 {
 	#address-cells = <1>;
 	#size-cells = <0>;
-	clock-frequency = <100000>;
+	clock-frequency = <400000>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_i2c0>;
 	status = "okay";
 
+	/* U-Blox NEO-M8L GNSS (Does the NEO-M8 driver work for this?) */
+	//compatible = "ns16550a";
+	gnss@42 {
+		compatible = "u-blox,neo-m8", "fsl,imx35-gpio";
+		reg = <0x42>; // reg = DDC (i2c) slave address
+		vcc-supply = <&pinctrl_v33>;
+
+		gpio-controller;
+		#gpio-cells = <2>;
+		pinctrl-0 = <&pinctrl_gnss_reset>;
+		pinctrl-1 = <&pinctrl_gnss_dir>;
+//		reset-gpios = <&pinctrl_gnss_reset>;
+	};
 //	isl29023@44 {
 //		pinctrl-names = "default";
 //		pinctrl-0 = <&pinctrl_isl29023>;
@@ -1388,7 +1402,6 @@
 &i2c1 {
 	status = "disabled";
 };
-
 //&i2c1 {
 //	#address-cells = <1>;
 //	#size-cells = <0>;
@@ -1427,13 +1440,18 @@
 &i2c4 {
 	#address-cells = <1>;
 	#size-cells = <0>;
-	clock-frequency = <100000>;
+	clock-frequency = <400000>;
 	pinctrl-names = "default", "gpio";
 	pinctrl-0 = <&pinctrl_i2c4>;
-	//pinctrl-1 = <&pinctrl_i2c4_gpio>;
-	//scl-gpios = <&lsio_gpio0 14 GPIO_ACTIVE_HIGH>;
-	//sda-gpios = <&lsio_gpio0 15 GPIO_ACTIVE_HIGH>;
 	status = "okay";
+	
+	/* The lsm6dsl uses the lsm6dsx driver */
+	lsm6dsx@6a{
+		compatible = "st,lsm6dsl";
+		reg = <0x6A>;
+		interrupt-parent = <&lsio_gpio4>;
+		interrupts = <17 IRQ_TYPE_LEVEL_HIGH>, <18 IRQ_TYPE_LEVEL_HIGH>;
+	};
 };
 
 &isi_0 {
@@ -1753,6 +1771,16 @@
 		fsl,pins = <
 			IMX8QM_ENET1_MDC_LSIO_GPIO4_IO18              0x00000060
 			IMX8QM_ENET1_MDIO_LSIO_GPIO4_IO17             0x00000060
+		>;
+	};
+	pinctrl_gnss_reset: gnssresetgrp {
+		fsl,pins = <
+			IMX8QM_ESAI0_FST_LSIO_GPIO2_IO23              0x00000060
+		>;
+	};
+	pinctrl_gnss_dir: gnssresetgrp {
+		fsl,pins = <
+			IMX8QM_ESAI0_FSR_LSIO_GPIO2_IO22              0x00000060
 		>;
 	};
 
