@@ -7,7 +7,7 @@
 
 /dts-v1/;
 
-#include "imx8qm-custom-rpmsg.dts"
+#include "imx8qm-BES_BGW_0002_A-rpmsg.dts"
 
 / {
     sound-hdmi-tx {
