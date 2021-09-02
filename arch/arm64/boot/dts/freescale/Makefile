@@ -116,10 +116,10 @@ DTC_FLAGS_fsl-ls1028a-qds-9999 := -@
 #      			  imx8qm-custom-ca72.dtb imx8qm-custom-hdmi.dtb \
 #		          imx8qm-custom-hdmi-rx.dtb imx8qm-custom-ov5640.dtb \
 #		          imx8qm-custom-rpmsg.dtb	  
-dtb-$(CONFIG_ARCH_MXC) += imx8qm-BES_BGW_0002_A.dtb  \
-			  imx8qm-BES_BGW_0002_A-rpmsg.dtb  \
-			  imx8qm-BES_BGW_0002_A-hdmi.dtb \
-			  imx8qm-BES_BGW_0002_A-dsp.dtb  
+dtb-$(CONFIG_ARCH_MXC) += imx8qm-BES_BGW_0002_A.dtb  
+#			  imx8qm-BES_BGW_0002_A-rpmsg.dtb  \
+#			  imx8qm-BES_BGW_0002_A-hdmi.dtb \
+#			  imx8qm-BES_BGW_0002_A-dsp.dtb  
 #dtb-$(CONFIG_ARCH_MXC) += imx8qm-mek.dtb imx8qm-mek-ov5640.dtb \
 #			  imx8qm-mek-enet2-tja1100.dtb imx8qm-mek-rpmsg.dtb \
 #			  imx8qm-mek-hdmi.dtb imx8qm-mek-dsp.dtb \
