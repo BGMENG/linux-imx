@@ -906,9 +906,13 @@
 	status = "okay";
 	
 	/* The lsm6dsl uses the lsm6dsX driver */
-	lsm6dsl@6b{
+	/* WHO_AM_I is 0x6A */
+	/* Read Address = 0xD5 */
+	/* Write Address = 0xD4 */
+	/* 0xD4 /2 = 0x6A */
+	lsm6dsl@6a{
 		compatible = "st,lsm6dsl";
-		reg = <0x6B>;
+		reg = <0x6a>;
 		interrupt-parent = <&lsio_gpio4>;
 		interrupts = <17 IRQ_TYPE_LEVEL_HIGH>, <18 IRQ_TYPE_LEVEL_HIGH>;
 	};
