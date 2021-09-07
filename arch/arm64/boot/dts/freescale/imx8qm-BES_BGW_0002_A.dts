@@ -87,6 +87,16 @@
 //	};
 
 
+	gnss_reset: gnss-reset {
+		compatible = "gpio-reset";
+		pinctrl-names = "default", "sleep";
+		pinctrl-0 = <&pinctrl_gnss_reset>;
+		reset-gpios = <&lsio_gpio2 23 GPIO_ACTIVE_LOW>;
+		reset-delay-us = <2000>;
+		reset-post-delay-ms = <40>;
+		#reset-cells = <0>;
+	};
+
 	//modem_reset: modem-reset {
 	//	compatible = "gpio-reset";
 	//	pinctrl-names = "default", "sleep";
@@ -197,7 +207,7 @@
 
 	reg_can02_stby: regulator-can2-stby {
 		compatible = "regulator-fixed";
-		regulator-name = "can2-stby";
+		regulator-name = "can02-stby";
 		regulator-min-microvolt = <3300000>;
 		regulator-max-microvolt = <3300000>;
 		gpios = <&lsio_gpio4 01 GPIO_ACTIVE_LOW>;
@@ -536,9 +546,9 @@
 	status = "disabled";
 };
 
-&i2c1_lvds0{
-	status = "disabled";
-};
+//&i2c1_lvds0{
+//	status = "disabled";
+//};
 
 &ldb1_phy{
 	status = "disabled";
@@ -548,18 +558,18 @@
 	status = "disabled";
 };
 
-&i2c0_mipi0 {
-	status = "disabled";
-};
+//&i2c0_mipi0 {
+//	status = "disabled";
+//};
 &mipi0_dphy {
 	status = "disabled";
 };
 &mipi0_dsi_host {
 	status = "disabled";
 };
-&i2c0_mipi1 {
-	status = "disabled";
-};
+//&i2c0_mipi1 {
+//	status = "disabled";
+//};
 
 &mipi1_dphy {
 	status = "disabled";
@@ -647,9 +657,9 @@
 //	status = "okay";
 //};
 
-&i2c1_lvds1 {
-	status = "disabled";
-};
+//&i2c1_lvds1 {
+//	status = "disabled";
+//};
 //&i2c1_lvds1 {
 //	#address-cells = <1>;
 //	#size-cells = <0>;
@@ -871,25 +881,27 @@
 	gnss@42 {
 		gpio-controller;
 		#gpio-cells = <2>;
-		compatible = "u-blox,neo-m8l", "fsl,imx35-gpio";
+		compatible = "u-blox,neo-m8";
 		reg = <0x42>; // reg = DDC (i2c) slave address
-		pinctrl-0 = <&pinctrl_gnss_reset>;
-		pinctrl-1 = <&pinctrl_gnss_dir>;
+
+		//vcc-supply = <&reg_gnss_reset>;
+		//pinctrl-0 = <&pinctrl_gnss_reset>;
+		//pinctrl-1 = <&pinctrl_gnss_dir>;
 		//reset-gpios = <&pinctrl_gnss_reset>;
 	};
 };
 
-&i2c1 {
-	status = "disabled";
-};
+//&i2c1 {
+//	status = "disabled";
+//};
 
-&i2c2 {
-	status = "disabled";
-};
+//&i2c2 {
+//	status = "disabled";
+//};
 
-&i2c3 {
-	status = "disabled";
-};
+//&i2c3 {
+//	status = "disabled";
+//};
 
 &i2c4 {
 	#address-cells = <1>;
@@ -1034,13 +1046,13 @@
        status = "okay";
 };
 
-&i2c_mipi_csi0 {
-	status = "disabled";
-};
+//&i2c_mipi_csi0 {
+//	status = "disabled";
+//};
 
-&i2c_mipi_csi1 {
-	status = "disabled";
-};
+//&i2c_mipi_csi1 {
+//	status = "disabled";
+//};
 
 &iomuxc {
 	pinctrl-names = "default";
