@@ -186,25 +186,23 @@
 //		enable-active-high;
 //	};
 
-//	reg_can01_stby: regulator-can01-stby {
-//		compatible = "regulator-fixed";
-//		regulator-name = "can01-stby";
-//		regulator-min-microvolt = <3300000>;
-//		regulator-max-microvolt = <3300000>;
-//		gpio = <&pca6416 5 GPIO_ACTIVE_HIGH>;
-//		enable-active-high;
-//		vin-supply = <&reg_can01_en>;
-//	};
+	reg_can01_stby: regulator-can01-stby {
+		compatible = "regulator-fixed";
+		regulator-name = "can01-stby";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		gpios = <&lsio_gpio4 02 GPIO_ACTIVE_LOW>;
+		enable-active-low;
+	};
 
-//	reg_can2_stby: regulator-can2-stby {
-//		compatible = "regulator-fixed";
-//		regulator-name = "can2-stby";
-//		regulator-min-microvolt = <3300000>;
-//		regulator-max-microvolt = <3300000>;
-//		gpio = <&pca6416 6 GPIO_ACTIVE_HIGH>;
-//		enable-active-high;
-//		vin-supply = <&reg_can2_en>;
-//	};
+	reg_can02_stby: regulator-can2-stby {
+		compatible = "regulator-fixed";
+		regulator-name = "can2-stby";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		gpios = <&lsio_gpio4 01 GPIO_ACTIVE_LOW>;
+		enable-active-low;
+	};
 
 	reg_vref_1v8: regulator-adc-vref {
 		compatible = "regulator-fixed";
@@ -756,16 +754,14 @@
 &flexcan1 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_flexcan1>;
-	stby-gpios = <&lsio_gpio4 02 GPIO_ACTIVE_LOW>;
-//	xceiver-supply = <&reg_can01_stby>;
+	xceiver-supply = <&reg_can01_stby>;
 	status = "okay";
 };
 
 &flexcan2 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_flexcan2>;
-	stby-gpios = <&lsio_gpio4 01 GPIO_ACTIVE_LOW>;
-//	xceiver-supply = <&reg_can01_stby>;
+	xceiver-supply = <&reg_can02_stby>;
 	status = "okay";
 };
 
@@ -873,15 +869,13 @@
 
 	/* U-Blox NEO-M8L GNSS (Does the NEO-M8 driver work for this?) */
 	gnss@42 {
-		compatible = "u-blox,neo-m8", "fsl,imx35-gpio";
-		reg = <0x42>; // reg = DDC (i2c) slave address
-//		vcc-supply = <&pinctrl_v33>;
-
 		gpio-controller;
 		#gpio-cells = <2>;
+		compatible = "u-blox,neo-m8l", "fsl,imx35-gpio";
+		reg = <0x42>; // reg = DDC (i2c) slave address
 		pinctrl-0 = <&pinctrl_gnss_reset>;
 		pinctrl-1 = <&pinctrl_gnss_dir>;
-//		reset-gpios = <&pinctrl_gnss_reset>;
+		//reset-gpios = <&pinctrl_gnss_reset>;
 	};
 };
 
@@ -1120,8 +1114,8 @@
 //			IMX8QM_ESAI0_TX0_LSIO_GPIO2_IO26              0x00000060
 //		>;
 //	};
-	pinctrl_gpio2: gpio2grp {
-		fsl,pins = <
+//	pinctrl_gpio2: gpio2grp {
+//		fsl,pins = <
 //			IMX8QM_ESAI0_FSR_LSIO_GPIO2_IO22              0x00000060 /* GPS_DIR */
 //			IMX8QM_ESAI0_FST_LSIO_GPIO2_IO23              0x00000060 /* GPS_RESET */
 //			IMX8QM_ESAI0_SCKR_LSIO_GPIO2_IO24             0x00000060 /* 5V0_PER_EN */
@@ -1144,8 +1138,8 @@
 //			IMX8QM_SPI3_SCK_LSIO_GPIO2_IO17               0x00000060 /* CELL_STAT_LED */
 //			IMX8QM_SPI3_SDI_LSIO_GPIO2_IO19               0x00000060 /* WIFI_STAT_LED */
 //			IMX8QM_SPI3_SDO_LSIO_GPIO2_IO18               0x00000060 /* GPS_STAT_LED */
-		>;
-	};
+//		>;
+//	};
 	pinctrl_gpio3: gpio3grp {
 		fsl,pins = <
 			IMX8QM_MCLK_IN0_LSIO_GPIO3_IO00               0x00000060 /* GPIO_EXT2 */
@@ -1189,7 +1183,7 @@
 		fsl,pins = <
 			IMX8QM_FLEXCAN0_RX_DMA_FLEXCAN0_RX            0x00000021
 			IMX8QM_FLEXCAN0_TX_DMA_FLEXCAN0_TX            0x00000021
-			IMX8QM_FLEXCAN2_TX_LSIO_GPIO4_IO02            0x00000040
+			IMX8QM_FLEXCAN2_TX_LSIO_GPIO4_IO02            0x06000040
 		>;
 	};
 
@@ -1197,7 +1191,7 @@
 		fsl,pins = <
 			IMX8QM_FLEXCAN1_RX_DMA_FLEXCAN1_RX            0x00000021
 			IMX8QM_FLEXCAN1_TX_DMA_FLEXCAN1_TX            0x00000021
-			IMX8QM_FLEXCAN2_RX_LSIO_GPIO4_IO01            0x00000040
+			IMX8QM_FLEXCAN2_RX_LSIO_GPIO4_IO01            0x06000040
 		>;
 	};
 
