@@ -755,7 +755,7 @@
 	status = "disabled";
 };
 
-&lpuart3 { 
+&lpuart3 { /* Bluetooth */ 
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_bt_uart>;
 	status = "okay";
