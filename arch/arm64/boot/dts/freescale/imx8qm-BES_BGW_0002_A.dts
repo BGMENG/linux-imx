@@ -315,22 +315,22 @@
 				<&pd IMX_SC_R_M4_0_MU_1A>;
 	};
 
-	//imx8qm_cm41: imx8x_cm4@1 {
-	//	compatible = "fsl,imx8qm-cm4";
-	//	rsc-da = <0x90100000>;
-	//	mbox-names = "tx", "rx", "rxdb";
-	//	mboxes = <&lsio_mu6 0 1
-	//		  &lsio_mu6 1 1
-	//		  &lsio_mu6 3 1>;
-	//	mub-partition = <4>;
-	//	memory-region = <&vdevbuffer>, <&vdev2vring0>, <&vdev2vring1>,
-	//			<&vdev3vring0>, <&vdev3vring1>, <&rsc_table1>;
-	//	core-index = <1>;
-	//	core-id = <IMX_SC_R_M4_1_PID0>;
-	//	status = "okay";
-	//	power-domains = <&pd IMX_SC_R_M4_1_PID0>,
-	//			<&pd IMX_SC_R_M4_1_MU_1A>;
-	//};
+	imx8qm_cm41: imx8x_cm4@1 {
+		compatible = "fsl,imx8qm-cm4";
+		rsc-da = <0x90100000>;
+		mbox-names = "tx", "rx", "rxdb";
+		mboxes = <&lsio_mu6 0 1
+			  &lsio_mu6 1 1
+			  &lsio_mu6 3 1>;
+		mub-partition = <4>;
+		memory-region = <&vdevbuffer>, <&vdev2vring0>, <&vdev2vring1>,
+				<&vdev3vring0>, <&vdev3vring1>, <&rsc_table1>;
+		core-index = <1>;
+		core-id = <IMX_SC_R_M4_1_PID0>;
+		status = "okay";
+		power-domains = <&pd IMX_SC_R_M4_1_PID0>,
+				<&pd IMX_SC_R_M4_1_MU_1A>;
+	};
 
 	reserved-memory {
 		#address-cells = <2>;
@@ -758,6 +758,7 @@
 &lpuart3 { /* Bluetooth */ 
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_bt_uart>;
+	fsl,uart-has-rtscts;
 	status = "okay";
 };
 
@@ -867,6 +868,22 @@
 	cd-gpios = <&lsio_gpio5 22 GPIO_ACTIVE_LOW>;
 	wp-gpios = <&lsio_gpio5 21 GPIO_ACTIVE_HIGH>;
 	status = "okay";
+};
+
+&usdhc3 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_usdhc3>;
+	bus-width = <4>;
+	no-1-8-v; /* Force 3.3V VIO */
+	non-removable;
+	pm-ignore-notify;
+	status = "okay";
+ 	wifi-host;
+	cap-sd-highspeed;
+	keep-power-in-suspend;
+	
 };
 
 &i2c0 {
