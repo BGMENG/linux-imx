@@ -87,12 +87,12 @@
 //	};
 
 
-	usdhc3_pwrseq: usdhc3_pwrseq {
-		compatible = "mmc-pwrseq-simple";
-		pinctrl-names = "default";
-		pinctrl-0 = <&pinctrl_usdhc3_gpio>;
-		reset-gpios = <&lsio_gpio2 10 GPIO_ACTIVE_LOW>;
-	};
+//	usdhc3_pwrseq: usdhc3_pwrseq {
+//		compatible = "mmc-pwrseq-simple";
+//		pinctrl-names = "default";
+//		pinctrl-0 = <&pinctrl_usdhc3_gpio>;
+//		reset-gpios = <&lsio_gpio2 10 GPIO_ACTIVE_LOW>;
+//	};
 
 	gnss_reset: gnss-reset {
 		compatible = "gpio-reset";
@@ -985,7 +985,7 @@
 	non-removable;
 	cap-power-off-card;
 	/delete-property/ vmmc-supply;
-	mcc-pwrseq=<&usdhc3_pwrseq>;
+//	mcc-pwrseq=<&usdhc3_pwrseq>;
 	status = "okay";
 	wifi_wake_host {
 		compatible = "nxp,wifi-wake-host";
