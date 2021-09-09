@@ -985,6 +985,8 @@
 	non-removable;
 	cap-power-off-card;
 	/delete-property/ vmmc-supply;
+	/delete-property/ cd-gpios;
+	/delete-property/ wp-gpios;
 //	mcc-pwrseq=<&usdhc3_pwrseq>;
 	status = "okay";
 	wifi_wake_host {
