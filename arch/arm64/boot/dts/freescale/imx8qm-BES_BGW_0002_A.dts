@@ -87,6 +87,13 @@
 //	};
 
 
+	usdhc3_pwrseq: usdhc3_pwrseq {
+		compatible = "mmc-pwrseq-simple";
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_usdhc3_gpio>;
+		reset-gpios = <&lsio_gpio2 10 GPIO_ACTIVE_LOW>;
+	};
+
 	gnss_reset: gnss-reset {
 		compatible = "gpio-reset";
 		pinctrl-names = "default", "sleep";
@@ -973,14 +980,21 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_gpio>;
 	bus-width = <4>;
-	non-removable;
 	pm-ignore-notify;
-	status = "okay";
- 	wifi-host;
-	cap-sd-highspeed;
 	keep-power-in-suspend;
-	
+	non-removable;
+	cap-power-off-card;
+	/delete-property/ vmmc-supply;
+	mcc-pwrseq=<&usdhc3_pwrseq>;
+	status = "okay";
+	wifi_wake_host {
+		compatible = "nxp,wifi-wake-host";
+                interrupt-parent  = <&lsio_gpio2>;
+		interrupts = <4 IRQ_TYPE_LEVEL_LOW>;
+		interrupt-names = "host-wake";
+	};	
 };
+
 
 &i2c0 {
 	#address-cells = <1>;
