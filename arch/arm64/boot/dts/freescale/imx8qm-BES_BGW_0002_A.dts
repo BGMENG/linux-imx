@@ -975,10 +975,10 @@
 };
 
 &usdhc3 {
-	#address-cells = <1>;
-	#size-cells = <0>;
-	pinctrl-names = "default";
+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
 	pinctrl-0 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_gpio>;
+	pinctrl-1 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_gpio>;
+	pinctrl-2 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_gpio>;
 	bus-width = <4>;
 	pm-ignore-notify;
 	keep-power-in-suspend;
@@ -1007,12 +1007,12 @@
 	status = "okay";
 
 	/* U-Blox NEO-M8L GNSS (Does the NEO-M8 driver work for this?) */
-	gnss@42 {
+	gnss: gnss@42 {
+		compatible = "u-blox,neo-m8";
 		gpio-controller;
 		#gpio-cells = <2>;
-		compatible = "u-blox,neo-m8";
 		reg = <0x42>; // reg = DDC (i2c) slave address
-
+		/delete-property/ vcc-supply;
 		//vcc-supply = <&reg_gnss_reset>;
 		//pinctrl-0 = <&pinctrl_gnss_reset>;
 		//pinctrl-1 = <&pinctrl_gnss_dir>;
@@ -1436,15 +1436,14 @@
 
 	pinctrl_usdhc3_gpio: usdhc3gpiogrp {
 		fsl,pins = <
-			IMX8QM_ADC_IN3_LSIO_GPIO3_IO21                          0x00000021 /* WIFI VBATT */
-			IMX8QM_ESAI0_TX1_LSIO_GPIO2_IO27                        0x00000021 /* WIFI VIO EN */
-			IMX8QM_ESAI0_TX3_RX2_LSIO_GPIO2_IO29                    0x00000021 /* WIFI VBAT EN */
-			IMX8QM_ESAI1_FSR_LSIO_GPIO2_IO04			0x00000021 /* WIFI SLEEP STAT */
-			IMX8QM_ESAI1_FST_LSIO_GPIO2_IO05			0x00000021 /* WIFI WAKE MPU */
-			IMX8QM_ESAI1_SCKR_LSIO_GPIO2_IO06			0x00000021 /* WIFI PDn */
-			IMX8QM_ESAI1_SCKT_LSIO_GPIO2_IO07			0x00000021 /* WIFI PG */
-			IMX8QM_ESAI1_TX0_LSIO_GPIO2_IO08			0x00000021 /* WIFI VIO PG */
-			IMX8QM_ESAI1_TX2_RX3_LSIO_GPIO2_IO10			0x00000021 /* WIFI VBATT PG */
+			IMX8QM_ESAI0_TX1_LSIO_GPIO2_IO27                        0x00000060 /* WIFI VIO EN */
+			IMX8QM_ESAI0_TX3_RX2_LSIO_GPIO2_IO29                    0x00000060 /* WIFI VBAT EN */
+			IMX8QM_ESAI1_FSR_LSIO_GPIO2_IO04			0x00000060 /* WIFI SLEEP STAT */
+			IMX8QM_ESAI1_FST_LSIO_GPIO2_IO05			0x00000060 /* WIFI WAKE MPU */
+			IMX8QM_ESAI1_SCKR_LSIO_GPIO2_IO06			0x00000060 /* WIFI PDn */
+			IMX8QM_ESAI1_SCKT_LSIO_GPIO2_IO07			0x00000060 /* WIFI PG */
+			IMX8QM_ESAI1_TX0_LSIO_GPIO2_IO08			0x00000060 /* WIFI VIO PG */
+			IMX8QM_ESAI1_TX2_RX3_LSIO_GPIO2_IO10			0x00000060 /* WIFI VBATT PG */
 		>;
 	};
 
