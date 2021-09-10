@@ -192,6 +192,7 @@
 		regulator-max-microvolt = <3300000>;
 		gpios = <&lsio_gpio4 02 GPIO_ACTIVE_LOW>;
 		enable-active-low;
+		regulator-always-on;
 	};
 
 	reg_can02_stby: regulator-can2-stby {
@@ -201,6 +202,7 @@
 		regulator-max-microvolt = <3300000>;
 		gpios = <&lsio_gpio4 01 GPIO_ACTIVE_LOW>;
 		enable-active-low;
+		regulator-always-on;
 	};
 
 	reg_vref_1v8: regulator-adc-vref {
@@ -208,6 +210,7 @@
 		regulator-name = "vref_1v8";
 		regulator-min-microvolt = <1800000>;
 		regulator-max-microvolt = <1800000>;
+		regulator-always-on;
 	};
 
 
