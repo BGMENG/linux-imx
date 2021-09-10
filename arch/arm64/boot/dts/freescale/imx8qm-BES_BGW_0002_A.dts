@@ -1029,9 +1029,10 @@
 		interrupt-parent  = <&lsio_gpio2>;
 		interrupts = <4 IRQ_TYPE_LEVEL_LOW>;
 		interrupt-names = "host-wake";
-	};	
+	};
+
 	wlan: wifi@0 {
-		compatible = "sd8xxx-wlan"
+		compatible = "sd8xxx-wlan";
 	};
 };
 
