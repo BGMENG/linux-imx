@@ -2557,8 +2557,17 @@ CONFIG_PCS_XPCS=y
 CONFIG_PCS_LYNX=y
 # end of PCS device drivers
 
-# CONFIG_PPP is not set
+CONFIG_PPP=m
+# CONFIG_PPP_BSDCOMP is not set
+# CONFIG_PPP_DEFLATE is not set
+# CONFIG_PPP_FILTER is not set
+# CONFIG_PPP_MPPE is not set
+# CONFIG_PPP_MULTILINK is not set
+# CONFIG_PPPOE is not set
+# CONFIG_PPP_ASYNC is not set
+# CONFIG_PPP_SYNC_TTY is not set
 # CONFIG_SLIP is not set
+CONFIG_SLHC=m
 
 #
 # Host-side USB support is needed for USB Network Adapter support
