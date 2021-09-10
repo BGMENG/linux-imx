@@ -46,6 +46,7 @@
                 wifi_led {
                         label = "wifi_led";
                         gpios = <&lsio_gpio2 19 GPIO_ACTIVE_HIGH>;
+                        linux,default-trigger = "mmc2";
                         default-state = "off";
                 };
                 ble_led {
