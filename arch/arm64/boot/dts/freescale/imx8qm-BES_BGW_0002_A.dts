@@ -268,7 +268,7 @@
 	};
 	reg_cell_reset: reg_cell_reset {
 		compatible = "regulator-fixed";
-		regulator-name = "reg_cell_pwr_on_3v3";
+		regulator-name = "reg_cell_reset";
 		regulator-min-microvolt = <3300000>;
 		regulator-max-microvolt = <3300000>;
 		gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
