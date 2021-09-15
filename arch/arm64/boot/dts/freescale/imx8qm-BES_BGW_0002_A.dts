@@ -262,7 +262,7 @@
 		regulator-name = "reg_cell_pwr_on_3v3";
 		regulator-min-microvolt = <3300000>;
 		regulator-max-microvolt = <3300000>;
-		gpios = <&lsio_gpio0 08 GPIO_ACTIVE_HIGH>;
+		gpios = <&lsio_gpio0 8 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
 		regulator-always-on;
 	};
@@ -271,7 +271,7 @@
 		regulator-name = "reg_cell_pwr_on_3v3";
 		regulator-min-microvolt = <3300000>;
 		regulator-max-microvolt = <3300000>;
-		gpios = <&lsio_gpio0 09 GPIO_ACTIVE_HIGH>;
+		gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
 		regulator-always-on;
 	};
