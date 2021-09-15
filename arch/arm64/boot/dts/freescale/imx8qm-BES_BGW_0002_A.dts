@@ -1022,10 +1022,10 @@
 	status = "okay";
 };
 
-&pcie1{
-        status = "disabled";
-        /delete-node/ wifi_wake_host;
-};
+//&pcie1{
+//        status = "disabled";
+//        /delete-node/ wifi_wake_host;
+//};
 
 &usdhc3 {
 	pinctrl-names = "default", "state_100mhz", "state_200mhz";
