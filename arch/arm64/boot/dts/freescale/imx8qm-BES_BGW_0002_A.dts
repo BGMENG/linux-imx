@@ -1029,12 +1029,12 @@
 	pinctrl-2 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_gpio>;
 	bus-width = <4>;
 //	vmmc-supply = <&reg_wifi_pdn>;
-	/delete-property/ vmmc-supply;
+//	/delete-property/ vmmc-supply;
 	/delete-property/ cd-gpios;
-	/delete-property/ wp-gpios;
-	no-sd;
-	no-mmc;
-	wifi-host;
+//	/delete-property/ wp-gpios;
+//	no-sd;
+//	no-mmc;
+//	wifi-host;
 	pm-ignore-notify;
 	keep-power-in-suspend;
 	non-removable;
@@ -1049,9 +1049,9 @@
 		interrupt-names = "host-wake";
 	};
 
-	wlan: wifi@0 {
-		compatible = "sd8xxx-wlan";
-	};
+//	wlan: wifi@0 {
+//		compatible = "sd8xxx-wlan";
+//	};
 };
 
 &i2c0 {
