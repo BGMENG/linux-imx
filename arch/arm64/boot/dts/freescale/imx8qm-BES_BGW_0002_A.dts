@@ -1022,18 +1022,14 @@
 	status = "okay";
 };
 
-//&pcie1{
-//        status = "disabled";
-//        /delete-node/ wifi_wake_host;
-//};
-
 &usdhc3 {
 	pinctrl-names = "default", "state_100mhz", "state_200mhz";
 	pinctrl-0 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_gpio>;
 	pinctrl-1 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_gpio>;
 	pinctrl-2 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_gpio>;
 	bus-width = <4>;
-        pinctrl-assert-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_HIGH>;
+        pinctrl-assert-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_LOW>;
+//      pinctrl-assert-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_HIGH>;
 //	vmmc-supply = <&reg_wifi_pdn>;
 //	/delete-property/ vmmc-supply;
 	/delete-property/ cd-gpios;
