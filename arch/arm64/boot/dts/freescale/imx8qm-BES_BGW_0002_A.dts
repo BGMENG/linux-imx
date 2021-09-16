@@ -92,7 +92,7 @@
 		compatible = "mmc-pwrseq-simple";
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_usdhc3_gpio>;
-		reset-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_LOW>;
+		reset-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_HIGH>;
 	};
 
 	gnss_reset: gnss-reset {
