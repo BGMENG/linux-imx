@@ -88,12 +88,12 @@
 //	};
 
 
-//	usdhc3_pwrseq: usdhc3_pwrseq {
-//		compatible = "mmc-pwrseq-simple";
-//		pinctrl-names = "default";
-//		pinctrl-0 = <&pinctrl_usdhc3_gpio>;
-//		reset-gpios = <&lsio_gpio2 10 GPIO_ACTIVE_LOW>;
-//	};
+	usdhc3_pwrseq: usdhc3_pwrseq {
+		compatible = "mmc-pwrseq-simple";
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_usdhc3_gpio>;
+		reset-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_LOW>;
+	};
 
 	gnss_reset: gnss-reset {
 		compatible = "gpio-reset";
@@ -246,16 +246,16 @@
 		startup-delay-us = <10000>;
 	};
 	
-	reg_wifi_pdn: reg_wifi_pdn {
-		compatible = "regulator-fixed";
-		regulator-name = "reg_wifi_pdn";
-		regulator-min-microvolt = <1800000>;
-		regulator-max-microvolt = <1800000>;
-		gpios = <&lsio_gpio2 06 GPIO_ACTIVE_HIGH>;
-		enable-active-high;
-		regulator-always-on;
-		startup-delay-us = <10000>;
-	};
+//	reg_wifi_pdn: reg_wifi_pdn {
+//		compatible = "regulator-fixed";
+//		regulator-name = "reg_wifi_pdn";
+//		regulator-min-microvolt = <1800000>;
+//		regulator-max-microvolt = <1800000>;
+//		gpios = <&lsio_gpio2 06 GPIO_ACTIVE_HIGH>;
+//		enable-active-high;
+//		regulator-always-on;
+//		startup-delay-us = <10000>;
+//	};
 
 	reg_cell_pwr_on_3v3: reg_cell_pwr_on_3v3 {
 		compatible = "regulator-fixed";
@@ -1041,7 +1041,7 @@
 	keep-power-in-suspend;
 	non-removable;
 	cap-power-off-card;
-//	mcc-pwrseq=<&usdhc3_pwrseq>;
+	mcc-pwrseq=<&usdhc3_pwrseq>;
 	status = "okay";
 
 	wifi_wake_host {
