@@ -246,16 +246,16 @@
 		startup-delay-us = <10000>;
 	};
 	
-//	reg_wifi_pdn: reg_wifi_pdn {
-//		compatible = "regulator-fixed";
-//		regulator-name = "reg_wifi_pdn";
-//		regulator-min-microvolt = <1800000>;
-//		regulator-max-microvolt = <1800000>;
-//		gpios = <&lsio_gpio2 06 GPIO_ACTIVE_HIGH>;
-//		enable-active-high;
-//		regulator-always-on;
-//		startup-delay-us = <10000>;
-//	};
+	reg_wifi_pdn: reg_wifi_pdn {
+		compatible = "regulator-fixed";
+		regulator-name = "reg_wifi_pdn";
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <1800000>;
+		gpios = <&lsio_gpio2 06 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
+		regulator-always-on;
+		startup-delay-us = <10000>;
+	};
 
 	reg_cell_pwr_on_3v3: reg_cell_pwr_on_3v3 {
 		compatible = "regulator-fixed";
