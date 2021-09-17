@@ -243,7 +243,7 @@
 		gpios = <&lsio_gpio2 28 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
 		regulator-always-on;
-		startup-delay-us = <10000>;
+		startup-delay-us = <3000>;
 	};
 	
 	reg_wifi_pdn: reg_wifi_pdn {
@@ -254,7 +254,7 @@
 		gpios = <&lsio_gpio2 06 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
 		regulator-always-on;
-		startup-delay-us = <10000>;
+		startup-delay-us = <5000>;
 	};
 
 	reg_cell_pwr_on_3v3: reg_cell_pwr_on_3v3 {
@@ -1029,21 +1029,21 @@
 	pinctrl-2 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_gpio>;
 	bus-width = <4>;
 //      pinctrl-assert-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_LOW>;
-//        pinctrl-assert-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_HIGH>;
+//      pinctrl-assert-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_HIGH>;
 //	vmmc-supply = <&reg_wifi_pdn>;
-//	/delete-property/ vmmc-supply;
+	/delete-property/ vmmc-supply;
 	/delete-property/ cd-gpios;
 	/delete-property/ wp-gpios;
-//	no-sd;
-//	no-mmc;
+	no-sd;
+	no-mmc;
 //	wifi-host;
-//	pm-ignore-notify;
-//	keep-power-in-suspend;
-//	non-removable;
-//	cap-power-off-card;
+	pm-ignore-notify;
+	keep-power-in-suspend;
+	non-removable;
+	cap-power-off-card;
 //	mcc-pwrseq=<&usdhc3_pwrseq>;
 	status = "okay";
-//
+
 //	wifi_wake_host {
 //		compatible = "nxp,wifi-wake-host";
 //		interrupt-parent  = <&lsio_gpio2>;
@@ -1497,7 +1497,7 @@
 			IMX8QM_ESAI0_TX1_LSIO_GPIO2_IO27			0x06000040 /* WIFI VIO EN */
 			IMX8QM_ESAI0_TX2_RX3_LSIO_GPIO2_IO28			0x06000040 /* WIFI_1V8_EN */ 
 			IMX8QM_ESAI0_TX3_RX2_LSIO_GPIO2_IO29			0x06000040 /* WIFI VBAT EN */
-			IMX8QM_ESAI1_SCKR_LSIO_GPIO2_IO06			0x00000060 /* WIFI PDn */
+			IMX8QM_ESAI1_SCKR_LSIO_GPIO2_IO06			0x06000040 /* WIFI PDn */
 			IMX8QM_ESAI1_FST_LSIO_GPIO2_IO05			0x00000060 /* WIFI WAKE MPU */
 			IMX8QM_ESAI1_FSR_LSIO_GPIO2_IO04			0x00000060 /* WIFI SLEEP STAT */
 			IMX8QM_ESAI1_SCKT_LSIO_GPIO2_IO07			0x00000060 /* WIFI PG */
