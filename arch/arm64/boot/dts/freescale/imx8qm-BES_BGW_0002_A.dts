@@ -88,12 +88,12 @@
 //	};
 
 
-	usdhc3_pwrseq: usdhc3_pwrseq {
-		compatible = "mmc-pwrseq-simple";
-		pinctrl-names = "default";
-		pinctrl-0 = <&pinctrl_usdhc3_gpio>;
-		reset-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_HIGH>;
-	};
+//	usdhc3_pwrseq: usdhc3_pwrseq {
+//		compatible = "mmc-pwrseq-simple";
+//		pinctrl-names = "default";
+//		pinctrl-0 = <&pinctrl_usdhc3_gpio>;
+//		reset-gpios = <&lsio_gpio2 10 GPIO_ACTIVE_LOW>;
+//	};
 
 	gnss_reset: gnss-reset {
 		compatible = "gpio-reset";
@@ -1029,7 +1029,7 @@
 	pinctrl-2 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_gpio>;
 	bus-width = <4>;
 //      pinctrl-assert-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_LOW>;
-        pinctrl-assert-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_HIGH>;
+//        pinctrl-assert-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_HIGH>;
 //	vmmc-supply = <&reg_wifi_pdn>;
 //	/delete-property/ vmmc-supply;
 	/delete-property/ cd-gpios;
@@ -1037,19 +1037,19 @@
 //	no-sd;
 //	no-mmc;
 //	wifi-host;
-	pm-ignore-notify;
-	keep-power-in-suspend;
-	non-removable;
-	cap-power-off-card;
+//	pm-ignore-notify;
+//	keep-power-in-suspend;
+//	non-removable;
+//	cap-power-off-card;
 //	mcc-pwrseq=<&usdhc3_pwrseq>;
-	status = "okay";
-
-	wifi_wake_host {
-		compatible = "nxp,wifi-wake-host";
-		interrupt-parent  = <&lsio_gpio2>;
-		interrupts = <4 IRQ_TYPE_LEVEL_LOW>;
-		interrupt-names = "host-wake";
-	};
+//	status = "okay";
+//
+//	wifi_wake_host {
+//		compatible = "nxp,wifi-wake-host";
+//		interrupt-parent  = <&lsio_gpio2>;
+//		interrupts = <4 IRQ_TYPE_LEVEL_LOW>;
+//		interrupt-names = "host-wake";
+//	};
 
 //	wlan: wifi@0 {
 //		compatible = "sd8xxx-wlan";
