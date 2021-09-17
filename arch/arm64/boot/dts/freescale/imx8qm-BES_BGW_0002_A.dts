@@ -1042,7 +1042,7 @@
 //	non-removable;
 //	cap-power-off-card;
 //	mcc-pwrseq=<&usdhc3_pwrseq>;
-//	status = "okay";
+	status = "okay";
 //
 //	wifi_wake_host {
 //		compatible = "nxp,wifi-wake-host";
