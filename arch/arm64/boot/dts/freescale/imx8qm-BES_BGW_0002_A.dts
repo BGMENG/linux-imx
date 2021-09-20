@@ -1066,17 +1066,13 @@
 	status = "okay";
 
 	/* U-Blox NEO-M8L GNSS (Does the NEO-M8 driver work for this?) */
-	gnss: gnss@42 {
-		compatible = "u-blox,neo-m8";
-		gpio-controller;
-		#gpio-cells = <2>;
-		reg = <0x42>; // reg = DDC (i2c) slave address
-		/delete-property/ vcc-supply;
-		//vcc-supply = <&reg_gnss_reset>;
-		//pinctrl-0 = <&pinctrl_gnss_reset>;
-		//pinctrl-1 = <&pinctrl_gnss_dir>;
-		//reset-gpios = <&pinctrl_gnss_reset>;
-	};
+//	gnss: gnss@42 {
+//		compatible = "u-blox,neo-m8";
+//		gpio-controller;
+//		#gpio-cells = <2>;
+//		reg = <0x42>; // reg = DDC (i2c) slave address
+//		/delete-property/ vcc-supply;
+//	};
 };
 
 //&i2c1 {
