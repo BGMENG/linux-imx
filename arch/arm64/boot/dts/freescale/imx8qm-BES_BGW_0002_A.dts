@@ -1028,7 +1028,7 @@
 	pinctrl-1 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_gpio>;
 	pinctrl-2 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_gpio>;
 	bus-width = <4>;
-	max-frequency = <1000000>;
+//	max-frequency = <1000000>;
 //      pinctrl-assert-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_LOW>;
 //      pinctrl-assert-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_HIGH>;
 //	vmmc-supply = <&reg_wifi_pdn>;
