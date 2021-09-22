@@ -866,13 +866,12 @@
 &i2c0 {
 	#address-cells = <1>;
 	#size-cells = <0>;
-	clock-frequency = <100000>;
+	clock-frequency = <400000>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_i2c0>;
 	status = "okay";
 
 	/* U-Blox NEO-M8L GNSS (Does the NEO-M8 driver work for this?) */
-	//gnss: gnss@42 {
 	gnss@42 {
 		compatible = "u-blox,neo-m8";
 		reg = <0x42>; // reg = DDC (i2c) slave address
@@ -1073,8 +1072,8 @@
 
 	pinctrl_i2c0: i2c0grp {
 		fsl,pins = <
-			IMX8QM_HDMI_TX0_TS_SCL_DMA_I2C0_SCL           0x06000021
-			IMX8QM_HDMI_TX0_TS_SDA_DMA_I2C0_SDA           0x06000021
+			IMX8QM_HDMI_TX0_TS_SCL_DMA_I2C0_SCL           0x06000020
+			IMX8QM_HDMI_TX0_TS_SDA_DMA_I2C0_SDA           0x06000020
 		>;
 	};
 
