@@ -221,6 +221,7 @@
 		enable-active-high;
 		regulator-always-on;
 	};
+
 	reg_cell_reset: reg_cell_reset {
 		compatible = "regulator-fixed";
 		regulator-name = "reg_cell_reset";
@@ -1050,6 +1051,7 @@
 			IMX8QM_ENET1_MDIO_LSIO_GPIO4_IO17             0x00000060 /* IMU_INT1 */
 		>;
 	};
+
 	pinctrl_gnss_reset: gnssresetgrp {
 		fsl,pins = <
 			IMX8QM_ESAI0_FST_LSIO_GPIO2_IO23              0x00000060
@@ -1063,8 +1065,8 @@
 
         pinctrl_bt_uart: bt_uartgrp { /* BLUETOOTH */
 		fsl,pins = <
-			IMX8QM_ENET0_RGMII_RXD3_DMA_UART3_RX          0x06000060
-			IMX8QM_ENET0_RGMII_TXD2_DMA_UART3_TX          0x06000060
+			IMX8QM_ENET0_RGMII_RXD3_DMA_UART3_RX          0x06000020
+			IMX8QM_ENET0_RGMII_TXD2_DMA_UART3_TX          0x06000020
 //			IMX8QM_ENET0_RGMII_TXD3_DMA_UART3_RTS_B       0x06000060
 //			IMX8QM_ENET0_RGMII_RXC_DMA_UART3_CTS_B        0x06000060
 		>;
