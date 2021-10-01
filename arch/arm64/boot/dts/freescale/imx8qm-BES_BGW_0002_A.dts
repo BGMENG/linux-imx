@@ -873,11 +873,11 @@
 	status = "okay";
 
 	/* U-Blox NEO-M8L GNSS (Does the NEO-M8 driver work for this?) */
-	gnss@42 {
-		compatible = "u-blox,neo-m8";
-		reg = <0x42>; // reg = DDC (i2c) slave address
-		/delete-property/ vcc-supply;
-	};
+//	gnss@42 {
+//		compatible = "u-blox,neo-m8";
+//		reg = <0x42>; // reg = DDC (i2c) slave address
+//		/delete-property/ vcc-supply;
+//	};
 };
 
 &i2c4 {
@@ -1063,15 +1063,6 @@
 		>;
 	};
 
-        pinctrl_bt_uart: bt_uartgrp { /* BLUETOOTH */
-		fsl,pins = <
-			IMX8QM_ENET0_RGMII_RXD3_DMA_UART3_RX          0x06000020
-			IMX8QM_ENET0_RGMII_TXD2_DMA_UART3_TX          0x06000020
-//			IMX8QM_ENET0_RGMII_TXD3_DMA_UART3_RTS_B       0x06000060
-//			IMX8QM_ENET0_RGMII_RXC_DMA_UART3_CTS_B        0x06000060
-		>;
-	};
-
 	pinctrl_i2c0: i2c0grp {
 		fsl,pins = <
 			IMX8QM_HDMI_TX0_TS_SCL_DMA_I2C0_SCL           0x06000020
@@ -1122,6 +1113,15 @@
 		fsl,pins = <
 			IMX8QM_UART0_RTS_B_DMA_UART2_RX		0x06000020
 			IMX8QM_UART0_CTS_B_DMA_UART2_TX		0x06000020
+		>;
+	};
+
+        pinctrl_bt_uart: bt_uartgrp { /* BLUETOOTH */
+		fsl,pins = <
+			IMX8QM_ENET0_RGMII_RXD3_DMA_UART3_RX          0x06000020
+			IMX8QM_ENET0_RGMII_TXD2_DMA_UART3_TX          0x06000020
+//			IMX8QM_ENET0_RGMII_TXD3_DMA_UART3_RTS_B       0x06000060
+//			IMX8QM_ENET0_RGMII_RXC_DMA_UART3_CTS_B        0x06000060
 		>;
 	};
 
