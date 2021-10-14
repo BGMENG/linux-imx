@@ -188,6 +188,7 @@
 		gpios = <&lsio_gpio2 29 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
 		regulator-always-on;
+		startup-delay-us = <1000>;
 	};
 
 	reg_wifi_1v8: reg_wifi_1v8 {
@@ -198,7 +199,7 @@
 		gpios = <&lsio_gpio2 28 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
 		regulator-always-on;
-		startup-delay-us = <3000>;
+		startup-delay-us = <2000>;
 	};
 	
 	reg_wifi_pdn: reg_wifi_pdn {
@@ -209,7 +210,7 @@
 		gpios = <&lsio_gpio2 06 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
 		regulator-always-on;
-		startup-delay-us = <5000>;
+		startup-delay-us = <3000>;
 	};
 
 	reg_cell_pwr_on_3v3: reg_cell_pwr_on_3v3 {
