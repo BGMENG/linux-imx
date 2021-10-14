@@ -161,57 +161,57 @@
 		regulator-always-on;
 	};
 
-	reg_vref_1v8: regulator-adc-vref {
-		compatible = "regulator-fixed";
-		regulator-name = "vref_1v8";
-		regulator-min-microvolt = <1800000>;
-		regulator-max-microvolt = <1800000>;
-		regulator-always-on;
-	};
-
-
-	reg_wifi_vio: reg_wifi_vio {
-		compatible = "regulator-fixed";
-		regulator-name = "reg_wifi_vio";
-		regulator-min-microvolt = <1800000>;
-		regulator-max-microvolt = <1800000>;
-		gpios = <&lsio_gpio2 27 GPIO_ACTIVE_HIGH>;
-		enable-active-high;
-		regulator-always-on;
-	};
-
-	reg_wifi_vbat: reg_wifi_vbat {
-		compatible = "regulator-fixed";
-		regulator-name = "reg_wifi_vbat";
-		regulator-min-microvolt = <3300000>;
-		regulator-max-microvolt = <3300000>;
-		gpios = <&lsio_gpio2 29 GPIO_ACTIVE_HIGH>;
-		enable-active-high;
-		regulator-always-on;
-		startup-delay-us = <2000>;
-	};
-
-	reg_wifi_1v8: reg_wifi_1v8 {
-		compatible = "regulator-fixed";
-		regulator-name = "reg_wifi_1v8";
-		regulator-min-microvolt = <1800000>;
-		regulator-max-microvolt = <1800000>;
-		gpios = <&lsio_gpio2 28 GPIO_ACTIVE_HIGH>;
-		enable-active-high;
-		regulator-always-on;
-		startup-delay-us = <3000>;
-	};
-	
-	reg_wifi_pdn: reg_wifi_pdn {
-		compatible = "regulator-fixed";
-		regulator-name = "reg_wifi_pdn";
-		regulator-min-microvolt = <1800000>;
-		regulator-max-microvolt = <1800000>;
-		gpios = <&lsio_gpio2 06 GPIO_ACTIVE_HIGH>;
-		enable-active-high;
-		regulator-always-on;
-		startup-delay-us = <4000>;
-	};
+//	reg_vref_1v8: regulator-adc-vref {
+//		compatible = "regulator-fixed";
+//		regulator-name = "vref_1v8";
+//		regulator-min-microvolt = <1800000>;
+//		regulator-max-microvolt = <1800000>;
+//		regulator-always-on;
+//	};
+//
+//
+//	reg_wifi_vio: reg_wifi_vio {
+//		compatible = "regulator-fixed";
+//		regulator-name = "reg_wifi_vio";
+//		regulator-min-microvolt = <1800000>;
+//		regulator-max-microvolt = <1800000>;
+//		gpios = <&lsio_gpio2 27 GPIO_ACTIVE_HIGH>;
+//		enable-active-high;
+//		regulator-always-on;
+//	};
+//
+//	reg_wifi_vbat: reg_wifi_vbat {
+//		compatible = "regulator-fixed";
+//		regulator-name = "reg_wifi_vbat";
+//		regulator-min-microvolt = <3300000>;
+//		regulator-max-microvolt = <3300000>;
+//		gpios = <&lsio_gpio2 29 GPIO_ACTIVE_HIGH>;
+//		enable-active-high;
+//		regulator-always-on;
+//		startup-delay-us = <2000>;
+//	};
+//
+//	reg_wifi_1v8: reg_wifi_1v8 {
+//		compatible = "regulator-fixed";
+//		regulator-name = "reg_wifi_1v8";
+//		regulator-min-microvolt = <1800000>;
+//		regulator-max-microvolt = <1800000>;
+//		gpios = <&lsio_gpio2 28 GPIO_ACTIVE_HIGH>;
+//		enable-active-high;
+//		regulator-always-on;
+//		startup-delay-us = <3000>;
+//	};
+//	
+//	reg_wifi_pdn: reg_wifi_pdn {
+//		compatible = "regulator-fixed";
+//		regulator-name = "reg_wifi_pdn";
+//		regulator-min-microvolt = <1800000>;
+//		regulator-max-microvolt = <1800000>;
+//		gpios = <&lsio_gpio2 06 GPIO_ACTIVE_HIGH>;
+//		enable-active-high;
+//		regulator-always-on;
+//		startup-delay-us = <4000>;
+//	};
 
 	reg_cell_pwr_on_3v3: reg_cell_pwr_on_3v3 {
 		compatible = "regulator-fixed";
@@ -832,9 +832,9 @@
 
 &usdhc3 {
 	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-	pinctrl-0 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_gpio>;
-	pinctrl-1 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_gpio>;
-	pinctrl-2 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_gpio>;
+	pinctrl-0 = <&pinctrl_usdhc3>;
+	pinctrl-1 = <&pinctrl_usdhc3>;
+	pinctrl-2 = <&pinctrl_usdhc3>;
 	bus-width = <4>;
 //	max-frequency = <1000000>;
 //      pinctrl-assert-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_LOW>;
@@ -1175,7 +1175,7 @@
 		>;
 	};
 
-	pinctrl_usdhc3_gpio: usdhc3gpiogrp {
+	pinctrl_wifi_gpio: wifi_gpiogrp {
 		fsl,pins = <
 			IMX8QM_ESAI0_TX1_LSIO_GPIO2_IO27			0x06000060 /* WIFI VIO EN     - Output */
 			IMX8QM_ESAI0_TX2_RX3_LSIO_GPIO2_IO28			0x06000060 /* WIFI_1V8_EN     - Output */ 
@@ -1185,7 +1185,7 @@
 			IMX8QM_ESAI1_FSR_LSIO_GPIO2_IO04			0x06000060 /* WIFI SLEEP STAT - Input  */
 			IMX8QM_ESAI1_SCKT_LSIO_GPIO2_IO07			0x06000060 /* WIFI PG         - Input  */
 			IMX8QM_ESAI1_TX0_LSIO_GPIO2_IO08			0x06000060 /* WIFI VIO PG     - Input  */
-			IMX8QM_ESAI1_TX2_RX3_LSIO_GPIO2_IO10			0x06000060 /* WIFI VBATT PG   - Intput */
+			IMX8QM_ESAI1_TX2_RX3_LSIO_GPIO2_IO10			0x06000060 /* WIFI VBATT PG   - Input */
 		>;
 	};
 
