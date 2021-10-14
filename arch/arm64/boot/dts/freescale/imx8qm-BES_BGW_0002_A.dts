@@ -839,8 +839,8 @@
 //	max-frequency = <1000000>;
 //      pinctrl-assert-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_LOW>;
 //      pinctrl-assert-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_HIGH>;
-	vmmc-supply = <&reg_wifi_vio>,<&ref_wifi_vbat>,<&reg_wifi_1v8>,<&reg_wifi_pdn>;
-	/delete-property/ vmmc-supply;
+	vmmc-supply = <&reg_wifi_vio>,<&reg_wifi_vbat>,<&reg_wifi_1v8>,<&reg_wifi_pdn>;
+//	/delete-property/ vmmc-supply;
 	/delete-property/ cd-gpios;
 	/delete-property/ wp-gpios;
 	no-sd;
