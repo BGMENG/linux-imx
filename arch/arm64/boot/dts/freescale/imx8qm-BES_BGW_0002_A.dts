@@ -170,48 +170,48 @@
 	};
 
 
-//	reg_wifi_vio: reg_wifi_vio {
-//		compatible = "regulator-fixed";
-//		regulator-name = "reg_wifi_vio";
-//		regulator-min-microvolt = <1800000>;
-//		regulator-max-microvolt = <1800000>;
-//		gpios = <&lsio_gpio2 27 GPIO_ACTIVE_HIGH>;
-//		enable-active-high;
-//		regulator-always-on;
-//	};
-//
-//	reg_wifi_vbat: reg_wifi_vbat {
-//		compatible = "regulator-fixed";
-//		regulator-name = "reg_wifi_vbat";
-//		regulator-min-microvolt = <3300000>;
-//		regulator-max-microvolt = <3300000>;
-//		gpios = <&lsio_gpio2 29 GPIO_ACTIVE_HIGH>;
-//		enable-active-high;
-//		regulator-always-on;
-//		startup-delay-us = <2000>;
-//	};
-//
-//	reg_wifi_1v8: reg_wifi_1v8 {
-//		compatible = "regulator-fixed";
-//		regulator-name = "reg_wifi_1v8";
-//		regulator-min-microvolt = <1800000>;
-//		regulator-max-microvolt = <1800000>;
-//		gpios = <&lsio_gpio2 28 GPIO_ACTIVE_HIGH>;
-//		enable-active-high;
-//		regulator-always-on;
-//		startup-delay-us = <3000>;
-//	};
-//	
-//	reg_wifi_pdn: reg_wifi_pdn {
-//		compatible = "regulator-fixed";
-//		regulator-name = "reg_wifi_pdn";
-//		regulator-min-microvolt = <1800000>;
-//		regulator-max-microvolt = <1800000>;
-//		gpios = <&lsio_gpio2 06 GPIO_ACTIVE_HIGH>;
-//		enable-active-high;
-//		regulator-always-on;
-//		startup-delay-us = <4000>;
-//	};
+	reg_wifi_vio: reg_wifi_vio {
+		compatible = "regulator-fixed";
+		regulator-name = "reg_wifi_vio";
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <1800000>;
+		gpios = <&lsio_gpio2 27 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
+		regulator-always-on;
+	};
+
+	reg_wifi_vbat: reg_wifi_vbat {
+		compatible = "regulator-fixed";
+		regulator-name = "reg_wifi_vbat";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		gpios = <&lsio_gpio2 29 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
+		regulator-always-on;
+		startup-delay-us = <2000>;
+	};
+
+	reg_wifi_1v8: reg_wifi_1v8 {
+		compatible = "regulator-fixed";
+		regulator-name = "reg_wifi_1v8";
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <1800000>;
+		gpios = <&lsio_gpio2 28 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
+		regulator-always-on;
+		startup-delay-us = <3000>;
+	};
+	
+	reg_wifi_pdn: reg_wifi_pdn {
+		compatible = "regulator-fixed";
+		regulator-name = "reg_wifi_pdn";
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <1800000>;
+		gpios = <&lsio_gpio2 06 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
+		regulator-always-on;
+		startup-delay-us = <4000>;
+	};
 
 	reg_cell_pwr_on_3v3: reg_cell_pwr_on_3v3 {
 		compatible = "regulator-fixed";
@@ -839,7 +839,7 @@
 //	max-frequency = <1000000>;
 //      pinctrl-assert-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_LOW>;
 //      pinctrl-assert-gpios = <&lsio_gpio2 6 GPIO_ACTIVE_HIGH>;
-//	vmmc-supply = <&reg_wifi_pdn>;
+	vmmc-supply = <&reg_wifi_vio>,<&ref_wifi_vbat>,<&reg_wifi_1v8>,<&reg_wifi_pdn>;
 	/delete-property/ vmmc-supply;
 	/delete-property/ cd-gpios;
 	/delete-property/ wp-gpios;
