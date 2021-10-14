@@ -161,15 +161,15 @@
 		regulator-always-on;
 	};
 
-//	reg_vref_1v8: regulator-adc-vref {
-//		compatible = "regulator-fixed";
-//		regulator-name = "vref_1v8";
-//		regulator-min-microvolt = <1800000>;
-//		regulator-max-microvolt = <1800000>;
-//		regulator-always-on;
-//	};
-//
-//
+	reg_vref_1v8: regulator-adc-vref {
+		compatible = "regulator-fixed";
+		regulator-name = "vref_1v8";
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <1800000>;
+		regulator-always-on;
+	};
+
+
 //	reg_wifi_vio: reg_wifi_vio {
 //		compatible = "regulator-fixed";
 //		regulator-name = "reg_wifi_vio";
