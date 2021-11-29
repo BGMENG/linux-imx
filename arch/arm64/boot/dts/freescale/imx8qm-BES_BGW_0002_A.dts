@@ -146,6 +146,18 @@
 
 	};
 
+	epdev_on: fixedregulator@100 {
+		compatible = "regulator-fixed";
+		pinctrl-names = "default", "sleep";
+		pinctrl-0 = <&pinctrl_wlreg_on>;
+		pinctrl-1 = <&pinctrl_wlreg_on_sleep>;
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		regulator-name = "epdev_on";
+		gpio = <&lsio_gpio1 13 0>;
+		enable-active-high;
+	};
+	
 	reg_usb_otg1_vbus: regulator-usbotg1-vbus {
 		compatible = "regulator-fixed";
 		regulator-name = "usb_otg1_vbus";
@@ -236,6 +248,7 @@
 		startup-delay-us = <5000>;
 	};
 
+	/* Cell Power and Reset are INVERTED */
 	reg_cell_pwr_on_3v3: reg_cell_pwr_on_3v3 {
 		compatible = "regulator-fixed";
 		regulator-name = "reg_cell_pwr_on_3v3";
@@ -243,7 +256,7 @@
 		regulator-max-microvolt = <3300000>;
 		gpios = <&lsio_gpio0 8 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
-		regulator-always-on;
+		regulator-always-off;
 	};
 
 	reg_cell_reset: reg_cell_reset {
@@ -253,7 +266,7 @@
 		regulator-max-microvolt = <3300000>;
 		gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
-		regulator-always-on;
+		regulator-always-off;
 	};
 
 	/*HDMI Audio cards*/
@@ -1396,4 +1409,3 @@
 		print-buf-size = <0x80000>;
 	};
 };
-
