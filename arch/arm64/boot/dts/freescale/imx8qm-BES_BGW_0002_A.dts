@@ -256,7 +256,7 @@
 		regulator-max-microvolt = <3300000>;
 		gpios = <&lsio_gpio0 8 GPIO_ACTIVE_HIGH>;
 		enable-active-low;
-		regulator-always-off;
+		regulator-always-on;
 	};
 
 	reg_cell_reset: reg_cell_reset {
@@ -266,7 +266,7 @@
 		regulator-max-microvolt = <3300000>;
 		gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
 		enable-active-low;
-		regulator-always-off;
+		regulator-always-on;
 	};
 
 	/*HDMI Audio cards*/
