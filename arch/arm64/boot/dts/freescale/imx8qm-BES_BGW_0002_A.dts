@@ -61,6 +61,15 @@
                 };
         };
 
+	cell_reset: cell-reset {
+		compatible = "gpio-reset";
+		pinctrl-names = "default", "sleep";
+		pinctrl-0 = <&pinctrl_cell_reset>;
+		reset-gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
+		reset-delay-us = <2000>;
+		reset-post-delay-ms = <40>;
+		#reset-cells = <0>;
+	};
 //	gnss_reset: gnss-reset {
 //		compatible = "gpio-reset";
 //		pinctrl-names = "default", "sleep";
@@ -259,15 +268,15 @@
 		regulator-always-on;
 	};
 
-	reg_cell_reset: reg_cell_reset {
-		compatible = "regulator-fixed";
-		regulator-name = "reg_cell_reset";
-		regulator-min-microvolt = <3300000>;
-		regulator-max-microvolt = <3300000>;
-		gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
-		enable-active-low;
-		regulator-always-on;
-	};
+//	reg_cell_reset: reg_cell_reset {
+//		compatible = "regulator-fixed";
+//		regulator-name = "reg_cell_reset";
+//		regulator-min-microvolt = <3300000>;
+//		regulator-max-microvolt = <3300000>;
+//		gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
+//		enable-active-low;
+//		regulator-always-on;
+//	};
 
 	/*HDMI Audio cards*/
 	sound-hdmi-tx {
@@ -1102,12 +1111,18 @@
 			IMX8QM_GPT1_CLK_LSIO_GPIO0_IO17               0x00000060 /* CELL_DCD_MPU */
 			IMX8QM_GPT1_COMPARE_LSIO_GPIO0_IO19           0x00000060 /* FAN_PWM */
 			IMX8QM_M40_GPIO0_00_LSIO_GPIO0_IO08           0x00000060 /* CELL_PWR_ON_3V3 */
-			IMX8QM_M40_GPIO0_01_LSIO_GPIO0_IO09           0x00000060 /* CELL_RESET_3V3 */
 //			IMX8QM_SCU_GPIO0_00_LSIO_GPIO0_IO28           0x00000063 /* PMIC1_PGOOD */
 //			IMX8QM_SCU_GPIO0_01_LSIO_GPIO0_IO29           0x00000063 /* PMIC2_PGOOD */
 //			IMX8QM_SCU_GPIO0_02_LSIO_GPIO0_IO30           0x00000063 /* BOOT_LED */
 		>;
 	};
+
+	pinctrl_cell_reset: cellresetgrp {
+		fsl,pins = <
+			IMX8QM_M40_GPIO0_01_LSIO_GPIO0_IO09           0x00000060 /* CELL_RESET_3V3 */
+		>;
+	};
+
 	pinctrl_gpio1: gpio1grp {
 		fsl,pins = <
 			IMX8QM_SCU_GPIO0_04_LSIO_GPIO1_IO00           0x00000063 /* PMIC_ON */
@@ -1144,6 +1159,7 @@
 			IMX8QM_ESAI0_FST_LSIO_GPIO2_IO23              0x00000060
 		>;
 	};
+
 	pinctrl_gnss_dir: gnssdirgrp {
 		fsl,pins = <
 			IMX8QM_ESAI0_FSR_LSIO_GPIO2_IO22              0x00000060
