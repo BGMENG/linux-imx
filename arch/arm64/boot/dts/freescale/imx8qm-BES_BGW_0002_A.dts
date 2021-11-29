@@ -61,15 +61,15 @@
                 };
         };
 
-	cell_reset: cell-reset {
-		compatible = "gpio-reset";
-		pinctrl-names = "default", "sleep";
-		pinctrl-0 = <&pinctrl_cell_reset>;
-		reset-gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
-		reset-delay-us = <2000>;
-		reset-post-delay-ms = <40>;
-		#reset-cells = <0>;
-	};
+//	cell_reset: cell-reset {
+//		compatible = "gpio-reset";
+//		pinctrl-names = "default", "sleep";
+//		pinctrl-0 = <&pinctrl_cell_reset>;
+//		reset-gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
+//		reset-delay-us = <2000>;
+//		reset-post-delay-ms = <40>;
+//		#reset-cells = <0>;
+//	};
 //	gnss_reset: gnss-reset {
 //		compatible = "gpio-reset";
 //		pinctrl-names = "default", "sleep";
@@ -167,14 +167,14 @@
 //		enable-active-high;
 //	};
 	
-	reg_usb_otg1_vbus: regulator-usbotg1-vbus {
-		compatible = "regulator-fixed";
-		regulator-name = "usb_otg1_vbus";
-		regulator-min-microvolt = <5000000>;
-		regulator-max-microvolt = <5000000>;
-		gpio = <&lsio_gpio4 3 GPIO_ACTIVE_HIGH>;
-		enable-active-high;
-	};
+//	reg_usb_otg1_vbus: regulator-usbotg1-vbus {
+//		compatible = "regulator-fixed";
+//		regulator-name = "usb_otg1_vbus";
+//		regulator-min-microvolt = <5000000>;
+//		regulator-max-microvolt = <5000000>;
+//		gpio = <&lsio_gpio4 3 GPIO_ACTIVE_HIGH>;
+//		enable-active-high;
+//	};
 
 	reg_usdhc2_vmmc: usdhc2-vmmc {
 		compatible = "regulator-fixed";
@@ -268,15 +268,15 @@
 		regulator-always-on;
 	};
 
-//	reg_cell_reset: reg_cell_reset {
-//		compatible = "regulator-fixed";
-//		regulator-name = "reg_cell_reset";
-//		regulator-min-microvolt = <3300000>;
-//		regulator-max-microvolt = <3300000>;
-//		gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
-//		enable-active-low;
-//		regulator-always-on;
-//	};
+	reg_cell_reset: reg_cell_reset {
+		compatible = "regulator-fixed";
+		regulator-name = "reg_cell_reset";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
+		enable-active-low;
+		regulator-always-on;
+	};
 
 	/*HDMI Audio cards*/
 	sound-hdmi-tx {
@@ -834,7 +834,7 @@
 };
 
 &usbotg1 {
-	vbus-supply = <&reg_usb_otg1_vbus>;
+	vbus-supply = <&reg_cell_reset>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_usbotg1>;
 	srp-disable;
