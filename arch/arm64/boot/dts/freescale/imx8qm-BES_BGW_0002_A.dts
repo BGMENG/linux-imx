@@ -269,13 +269,13 @@
 	};
 
 	reg_cell_reset: reg_cell_reset {
-		compatible = "regulator-fixed";
+//		compatible = "regulator-fixed";
 		regulator-name = "reg_cell_reset";
 		regulator-min-microvolt = <3300000>;
 		regulator-max-microvolt = <3300000>;
 		gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
 		enable-active-low;
-		regulator-always-on;
+//		regulator-always-on;
 	};
 
 	/*HDMI Audio cards*/
@@ -834,7 +834,7 @@
 };
 
 &usbotg1 {
-	vbus-supply = <&reg_cell_reset>;
+//	vbus-supply = <&reg_cell_reset>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_usbotg1>;
 	srp-disable;
@@ -842,6 +842,7 @@
 	adp-disable;
 	disable-over-current;
 	status = "okay";
+	reset-gpio = <&pinctrl_cell_reset 9 GPIO_ACTIVE_LOW>;
 };
 
 &usb3_phy {
