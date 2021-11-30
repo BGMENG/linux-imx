@@ -60,11 +60,11 @@
                         default-state = "off";
                 };
 
-		cell_reset {
-                        label = "cell_reset";
-                        gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
-                        default-state = "off";
-		};
+//		cell_reset {
+  //                      label = "cell_reset";
+  //                      gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
+  //                      default-state = "off";
+//		};
         };
 
 //	cell_reset: cell-reset {
@@ -1124,11 +1124,11 @@
 		>;
 	};
 
-	pinctrl_cell_reset: cellresetgrp {
-		fsl,pins = <
-			IMX8QM_M40_GPIO0_01_LSIO_GPIO0_IO09           0x00000060 /* CELL_RESET_3V3 */
-		>;
-	};
+//	pinctrl_cell_reset: cellresetgrp {
+//		fsl,pins = <
+//			IMX8QM_M40_GPIO0_01_LSIO_GPIO0_IO09           0x00000060 /* CELL_RESET_3V3 */
+//		>;
+//	};
 
 	pinctrl_gpio1: gpio1grp {
 		fsl,pins = <
