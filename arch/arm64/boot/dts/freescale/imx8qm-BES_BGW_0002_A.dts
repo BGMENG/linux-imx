@@ -63,7 +63,7 @@
 		cell_reset {
                         label = "cell_reset";
                         gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
-                        default-state = "on";
+                        default-state = "off";
 		};
         };
 
