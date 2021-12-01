@@ -60,11 +60,11 @@
                         default-state = "off";
                 };
 
-//		cell_reset {
-  //                      label = "cell_reset";
-  //                      gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
-  //                      default-state = "off";
-//		};
+		cell_reset {
+			label = "cell_reset";
+			gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
+			default-state = "off";
+		};
         };
 
 //	cell_reset: cell-reset {
@@ -1100,13 +1100,13 @@
 	pinctrl-names = "default";
 //	pinctrl-0 = <&pinctrl_hog>;
 
- 	pinctrl_hog: hoggrp {
-		fsl,pins = <
-			IMX8QM_ESAI0_SCKR_LSIO_GPIO2_IO24             0x80000000
-			IMX8QM_ESAI0_SCKT_LSIO_GPIO2_IO25             0x80000000
-			IMX8QM_ESAI0_TX0_LSIO_GPIO2_IO26              0x80000000
-		>;
-	};
+// 	pinctrl_hog: hoggrp {
+//		fsl,pins = <
+//			IMX8QM_ESAI0_SCKR_LSIO_GPIO2_IO24             0x80000000
+//			IMX8QM_ESAI0_SCKT_LSIO_GPIO2_IO25             0x80000000
+//			IMX8QM_ESAI0_TX0_LSIO_GPIO2_IO26              0x80000000
+//		>;
+//	};
 
 	// imx8qm_BES_BGW_0002_A
 	pinctrl_gpio0: gpio0grp {
