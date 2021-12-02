@@ -67,25 +67,6 @@
 		};
         };
 
-//	cell_reset: cell-reset {
-//		compatible = "gpio-reset";
-//		pinctrl-names = "default", "sleep";
-//		pinctrl-0 = <&pinctrl_cell_reset>;
-//		reset-gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
-//		reset-delay-us = <2000>;
-//		reset-post-delay-ms = <40>;
-//		#reset-cells = <0>;
-//	};
-//	gnss_reset: gnss-reset {
-//		compatible = "gpio-reset";
-//		pinctrl-names = "default", "sleep";
-//		pinctrl-0 = <&pinctrl_gnss_reset>;
-//		reset-gpios = <&lsio_gpio2 23 GPIO_ACTIVE_LOW>;
-//		reset-delay-us = <2000>;
-//		reset-post-delay-ms = <40>;
-//		#reset-cells = <0>;
-//	};
-
 //	cbtl04gp {
 //		compatible = "nxp,cbtl04gp";
 //		pinctrl-names = "default";
@@ -173,15 +154,6 @@
 //		enable-active-high;
 //	};
 	
-//	reg_usb_otg1_vbus: regulator-usbotg1-vbus {
-//		compatible = "regulator-fixed";
-//		regulator-name = "usb_otg1_vbus";
-//		regulator-min-microvolt = <5000000>;
-//		regulator-max-microvolt = <5000000>;
-//		gpio = <&lsio_gpio4 3 GPIO_ACTIVE_HIGH>;
-//		enable-active-high;
-//	};
-
 //	reg_usb_otg2_vbus: regulator-usbotg2-vbus {
 //		compatible = "regulator-fixed";
 //		regulator-name = "usb_otg2_vbus";
@@ -282,16 +254,6 @@
 		enable-active-low;
 		regulator-always-on;
 	};
-
-//	reg_cell_reset: reg_cell_reset {
-//		compatible = "regulator-fixed";
-//		regulator-name = "reg_cell_reset";
-//		regulator-min-microvolt = <3300000>;
-//		regulator-max-microvolt = <3300000>;
-//		gpios = <&lsio_gpio0 9 GPIO_ACTIVE_HIGH>;
-//		enable-active-low;
-//		regulator-always-on;
-//	};
 
 	/*HDMI Audio cards*/
 	sound-hdmi-tx {
@@ -849,15 +811,12 @@
 };
 
 &usbotg1 {
-//	vbus-supply = <&reg_cell_reset>;
 	pinctrl-names = "default";
-//	pinctrl-0 = <&pinctrl_usbotg1>;
 	srp-disable;
 	hnp-disable;
 	adp-disable;
 	disable-over-current;
 	status = "okay";
-//	reset-gpio = <&pinctrl_cell_reset 9 GPIO_ACTIVE_LOW>;
 };
 
 &usb3_phy {
@@ -865,12 +824,7 @@
 };
 
 &usbotg3 {
-//	vbus-supply = <&reg_usb_otg2_vbus>;
-//	pinctrl-0 = <&pinctrl_usbotg2>;
-//	srp-disable;
-//	hnp-disable;
-//	adp-disable;
-//	disable-over-current;
+	dr_mode = "host";
 	status = "okay";
 };
 
@@ -960,41 +914,6 @@
 //		compatible = "u-blox,neo-m8";
 //		reg = <0x42>; // reg = DDC (i2c) slave address
 //		/delete-property/ vcc-supply;
-//	};
-//	ptn5110: tcpc@51 {
-//		compatible = "nxp,ptn5110";
-//		pinctrl-names = "default";
-//		pinctrl-0 = <&pinctrl_typec>;
-//		reg = <0x51>;
-//		interrupt-parent = <&lsio_gpio4>;
-//		interrupts = <26 IRQ_TYPE_LEVEL_LOW>;
-//		status = "okay";
-//
-//		port {
-//			typec_dr_sw: endpoint {
-//				remote-endpoint = <&usb3_drd_sw>;
-//			};
-//		};
-//
-//		usb_con1: connector {
-//			compatible = "usb-c-connector";
-//			label = "USB-C";
-//			power-role = "source";
-//			data-role = "dual";
-//			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-//
-//			ports {
-//				#address-cells = <1>;
-//				#size-cells = <0>;
-//
-//				port@1 {
-//					reg = <1>;
-//					typec_con_ss: endpoint {
-//						remote-endpoint = <&usb3_data_ss>;
-//					};
-//				};
-//			};
-//		};
 //	};
 };
 
