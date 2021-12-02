@@ -1182,7 +1182,7 @@
 
 	pinctrl_usbotg2: usbotg2 {
 		fsl,pins = <
-			IM8QM_USB_SS3_TC1_LSIO_GPIO4_IO04		0x06000021
+			IMX8QM_USB_SS3_TC1_LSIO_GPIO4_IO04		0x06000021
 		>;
 	};
 
