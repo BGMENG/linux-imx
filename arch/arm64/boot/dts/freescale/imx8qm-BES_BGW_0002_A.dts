@@ -154,14 +154,14 @@
 //		enable-active-high;
 //	};
 	
-//	reg_usb_otg2_vbus: regulator-usbotg2-vbus {
-//		compatible = "regulator-fixed";
-//		regulator-name = "usb_otg2_vbus";
-//		regulator-min-microvolt = <5000000>;
-//		regulator-max-microvolt = <5000000>;
-//		gpio = <&lsio_gpio4 4 GPIO_ACTIVE_HIGH>;
-//		enable-active-high;
-//	};
+	reg_usb_otg2_vbus: regulator-usbotg2-vbus {
+		compatible = "regulator-fixed";
+		regulator-name = "usb_otg2_vbus";
+		regulator-min-microvolt = <5000000>;
+		regulator-max-microvolt = <5000000>;
+		gpio = <&lsio_gpio4 4 GPIO_ACTIVE_LOW>;
+		enable-active-low;
+	};
 
 	reg_usdhc2_vmmc: usdhc2-vmmc {
 		compatible = "regulator-fixed";
@@ -824,6 +824,9 @@
 };
 
 &usbotg3 {
+	vbus-supply = <&reg_usb_otg2_vbus>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_usbotg2>;
 	dr_mode = "host";
 	status = "okay";
 };
@@ -1059,12 +1062,6 @@
 		>;
 	};
 
-//	pinctrl_cell_reset: cellresetgrp {
-//		fsl,pins = <
-//			IMX8QM_M40_GPIO0_01_LSIO_GPIO0_IO09           0x00000060 /* CELL_RESET_3V3 */
-//		>;
-//	};
-
 	pinctrl_gpio1: gpio1grp {
 		fsl,pins = <
 			IMX8QM_SCU_GPIO0_04_LSIO_GPIO1_IO00           0x00000063 /* PMIC_ON */
@@ -1093,10 +1090,8 @@
 		fsl,pins = <
 			IMX8QM_ENET1_MDC_LSIO_GPIO4_IO18              0x00000060 /* IMU_INT2 */
 			IMX8QM_ENET1_MDIO_LSIO_GPIO4_IO17             0x00000060 /* IMU_INT1 */
-			IMX8QM_USB_SS3_TC1_LSIO_GPIO4_IO04		0x00000020 /* VUSB2_EN as GPIO */
 		>;
 	};
-//			IMX8QM_USB_SS3_TC1_CONN_USB_OTG2_PWR           0x00000020 /* VUSB2_EN */
 
 	pinctrl_gnss_reset: gnssresetgrp {
 		fsl,pins = <
@@ -1187,7 +1182,7 @@
 
 	pinctrl_usbotg2: usbotg2 {
 		fsl,pins = <
-			IMX8QM_USB_SS3_TC1_CONN_USB_OTG2_PWR		0x06000021
+			IM8QM_USB_SS3_TC1_LSIO_GPIO4_IO04		0x06000021
 		>;
 	};
 
