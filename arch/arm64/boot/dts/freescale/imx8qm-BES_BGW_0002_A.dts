@@ -182,6 +182,15 @@
 //		enable-active-high;
 //	};
 
+	reg_usb_otg2_vbus: regulator-usbotg2-vbus {
+		compatible = "regulator-fixed";
+		regulator-name = "usb_otg2_vbus";
+		regulator-min-microvolt = <5000000>;
+		regulator-max-microvolt = <5000000>;
+		gpio = <&lsio_gpio4 4 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
+	};
+
 	reg_usdhc2_vmmc: usdhc2-vmmc {
 		compatible = "regulator-fixed";
 		regulator-name = "SD1_SPWR";
@@ -856,6 +865,12 @@
 };
 
 &usbotg3 {
+	vbus-supply = <&reg_usb_otg2_vbus>;
+	pinctrl-0 = <&pinctrl_usbotg2>;
+	srp-disable;
+	hnp-disable;
+	adp-disable;
+	disable-over-current;
 	status = "okay";
 };
 
