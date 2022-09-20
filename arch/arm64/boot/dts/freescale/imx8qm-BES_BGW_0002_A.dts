@@ -1024,12 +1024,12 @@
 
  	pinctrl_hog: hoggrp {
 		fsl,pins = <
-+                        IMX8QM_ESAI0_TX5_RX0_LSIO_GPIO2_IO31          0x00000060 /* Rev D VBAT_IGN_3V3 */
-+                        IMX8QM_MCLK_IN0_LSIO_GPIO3_IO00               0x00000060 /* GPIO_EXT2 */
-+                        IMX8QM_MCLK_OUT0_LSIO_GPIO3_IO01              0x00000060 /* GPIO_EXT3 */
-+                        IMX8QM_ESAI1_TX0_LSIO_GPIO2_IO08              0x06000060 /* Was WIFI VIO PG     - Input , Rev D VIN_GOOD */
-+                        IMX8QM_GPT1_CAPTURE_LSIO_GPIO0_IO18           0x00000060 /* was CELL_DTR_MPU. Rev D is CHG_READY_1V8 */
-+                        IMX8QM_GPT1_COMPARE_LSIO_GPIO0_IO19           0x00000060 /* FAN_PWM */
+                        IMX8QM_ESAI0_TX5_RX0_LSIO_GPIO2_IO31          0x00000060 /* Rev D VBAT_IGN_3V3 */
+                        IMX8QM_MCLK_IN0_LSIO_GPIO3_IO00               0x00000060 /* GPIO_EXT2 */
+                        IMX8QM_MCLK_OUT0_LSIO_GPIO3_IO01              0x00000060 /* GPIO_EXT3 */
+                        IMX8QM_ESAI1_TX0_LSIO_GPIO2_IO08              0x06000060 /* Was WIFI VIO PG     - Input , Rev D VIN_GOOD */
+                        IMX8QM_GPT1_CAPTURE_LSIO_GPIO0_IO18           0x00000060 /* was CELL_DTR_MPU. Rev D is CHG_READY_1V8 */
+                        IMX8QM_GPT1_COMPARE_LSIO_GPIO0_IO19           0x00000060 /* FAN_PWM */
 //			IMX8QM_ESAI0_SCKR_LSIO_GPIO2_IO24             0x80000000
 //			IMX8QM_ESAI0_SCKT_LSIO_GPIO2_IO25             0x80000000
 //			IMX8QM_ESAI0_TX0_LSIO_GPIO2_IO26              0x80000000
