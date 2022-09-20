@@ -401,11 +401,11 @@
 //	pinctrl-0 = <&pinctrl_gpio2>;
 	status = "okay";
 };
-&lsio_gpio3{
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_gpio3>;
-	status = "okay";
-};
+//&lsio_gpio3{
+//	pinctrl-names = "default";
+//	pinctrl-0 = <&pinctrl_gpio3>;
+//	status = "okay";
+//};
 &lsio_gpio4{
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_gpio4>;
@@ -1020,15 +1020,21 @@
 
 &iomuxc {
 	pinctrl-names = "default";
-//	pinctrl-0 = <&pinctrl_hog>;
+	pinctrl-0 = <&pinctrl_hog>;
 
-// 	pinctrl_hog: hoggrp {
-//		fsl,pins = <
+ 	pinctrl_hog: hoggrp {
+		fsl,pins = <
++                        IMX8QM_ESAI0_TX5_RX0_LSIO_GPIO2_IO31          0x00000060 /* Rev D VBAT_IGN_3V3 */
++                        IMX8QM_MCLK_IN0_LSIO_GPIO3_IO00               0x00000060 /* GPIO_EXT2 */
++                        IMX8QM_MCLK_OUT0_LSIO_GPIO3_IO01              0x00000060 /* GPIO_EXT3 */
++                        IMX8QM_ESAI1_TX0_LSIO_GPIO2_IO08              0x06000060 /* Was WIFI VIO PG     - Input , Rev D VIN_GOOD */
++                        IMX8QM_GPT1_CAPTURE_LSIO_GPIO0_IO18           0x00000060 /* was CELL_DTR_MPU. Rev D is CHG_READY_1V8 */
++                        IMX8QM_GPT1_COMPARE_LSIO_GPIO0_IO19           0x00000060 /* FAN_PWM */
 //			IMX8QM_ESAI0_SCKR_LSIO_GPIO2_IO24             0x80000000
 //			IMX8QM_ESAI0_SCKT_LSIO_GPIO2_IO25             0x80000000
 //			IMX8QM_ESAI0_TX0_LSIO_GPIO2_IO26              0x80000000
-//		>;
-//	};
+		>;
+	};
 
 	// imx8qm_BES_BGW_0002_A
 	pinctrl_gpio0: gpio0grp {
@@ -1036,9 +1042,9 @@
 			IMX8QM_GPT0_CAPTURE_LSIO_GPIO0_IO15           0x00000060 /* CELL_DSR_MPU */
 			IMX8QM_GPT0_CLK_LSIO_GPIO0_IO14               0x00000060 /* CELL_ON */
 			IMX8QM_GPT0_COMPARE_LSIO_GPIO0_IO16           0x00000060 /* CELL_RI_MPU */
-			IMX8QM_GPT1_CAPTURE_LSIO_GPIO0_IO18           0x00000060 /* CELL_DTR_MPU */
+//			IMX8QM_GPT1_CAPTURE_LSIO_GPIO0_IO18           0x00000060 /* CELL_DTR_MPU */
 			IMX8QM_GPT1_CLK_LSIO_GPIO0_IO17               0x00000060 /* CELL_DCD_MPU */
-			IMX8QM_GPT1_COMPARE_LSIO_GPIO0_IO19           0x00000060 /* FAN_PWM */
+//			IMX8QM_GPT1_COMPARE_LSIO_GPIO0_IO19           0x00000060 /* FAN_PWM */
 			IMX8QM_M40_GPIO0_00_LSIO_GPIO0_IO08           0x00000060 /* CELL_PWR_ON_3V3 */
 			IMX8QM_M40_GPIO0_01_LSIO_GPIO0_IO09           0x00000060 /* CELL_RESET_3V3 */
 //			IMX8QM_SCU_GPIO0_00_LSIO_GPIO0_IO28           0x00000063 /* PMIC1_PGOOD */
@@ -1065,12 +1071,12 @@
 		>;
 	};
 	
-	pinctrl_gpio3: gpio3grp {
-		fsl,pins = <
-			IMX8QM_MCLK_IN0_LSIO_GPIO3_IO00               0x00000060 /* GPIO_EXT2 */
-			IMX8QM_MCLK_OUT0_LSIO_GPIO3_IO01              0x00000060 /* GPIO_EXT3 */
-		>;
-	};
+//	pinctrl_gpio3: gpio3grp {
+//		fsl,pins = <
+//			IMX8QM_MCLK_IN0_LSIO_GPIO3_IO00               0x00000060 /* GPIO_EXT2 */
+//			IMX8QM_MCLK_OUT0_LSIO_GPIO3_IO01              0x00000060 /* GPIO_EXT3 */
+//		>;
+//	};
 	pinctrl_gpio4: gpio4grp {
 		fsl,pins = <
 			IMX8QM_ENET1_MDC_LSIO_GPIO4_IO18              0x00000060 /* IMU_INT2 */
@@ -1229,7 +1235,7 @@
 			IMX8QM_ESAI1_FST_LSIO_GPIO2_IO05			0x06000060 /* WIFI WAKE MPU   - Input  */
 			IMX8QM_ESAI1_FSR_LSIO_GPIO2_IO04			0x06000060 /* WIFI SLEEP STAT - Input  */
 			IMX8QM_ESAI1_SCKT_LSIO_GPIO2_IO07			0x06000060 /* WIFI PG         - Input  */
-			IMX8QM_ESAI1_TX0_LSIO_GPIO2_IO08			0x06000060 /* WIFI VIO PG     - Input  */
+//			IMX8QM_ESAI1_TX0_LSIO_GPIO2_IO08			0x06000060 /* WIFI VIO PG     - Input  */
 			IMX8QM_ESAI1_TX2_RX3_LSIO_GPIO2_IO10			0x06000060 /* WIFI VBATT PG   - Intput */
 		>;
 	};
